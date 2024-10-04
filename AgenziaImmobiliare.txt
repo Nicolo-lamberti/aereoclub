@@ -1,0 +1,21 @@
+drop database if exists AgenziaImmobiliare;
+create database AgenziaImmobiliare;
+use AgenziaImmobiliare; 
+
+create table proprietario(
+IDproprietario integer unsigned auto_increment primary key,
+nome varchar(20) not null,
+cognome varchar(20) not null,
+cel int
+)engine innodb;
+
+create table immobile(
+IDimmobile integer unsigned auto_increment primary key,
+indirizzo varchar(20) not null,
+mq int,
+piano int,
+prezzoRichiesto int,
+IDproprietario integer unsigned,
+foreign key(IDproprietario) references proprietario(IDproprietario)
+)engine innodb;
+
